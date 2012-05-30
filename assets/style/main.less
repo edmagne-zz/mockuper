@@ -1,0 +1,108 @@
+body {
+	background: url("../images/graphy.png")
+}
+
+header {
+	background: #FF7E14 url("../images/header-mockuper.gif") no-repeat 0 0;
+	padding: 120px 0 0;
+	text-align: center;
+	.box-shadow(0 2px 4px, 30%);
+	.border-bottom-radius(4px);
+}
+
+header ul {
+	list-style: none;
+	padding: 5px 0;
+	margin: 0;
+}
+
+header ul li {
+	display: inline-block;
+	padding: 0 20px;
+	border-left: 1px dotted #FFC493;
+}
+
+header ul li:nth-child(1) {
+	border-left: none;
+}
+
+header ul li a {
+	color: #FFDFC6;
+	text-decoration: none;
+}
+
+header ul li a:hover {
+	color: #fff;
+}
+
+footer div {
+	color: #333;
+	text-align: center;
+	padding: 10px 0;
+}
+
+h2 {
+	margin-top: 10px;
+}
+
+.bloco-principal {
+	background: white;
+	margin-top: 20px;
+	border-radius: 4px;
+	.box-shadow(0 0 6px, 10%);
+	border: 1px solid #d7d7d7;
+	padding-bottom: 30px;
+	padding-top: 15px;
+}
+
+.clear-custom {
+	background: #d7d7d7;
+	height: 1px;
+	visibility: visible;
+	width: 100%;
+	margin: 20px 0 20px 0;
+	float: left;
+}
+
+.margin_fix {
+	margin-left: 60px;
+}
+
+.explicacao {
+	margin-top: 20px;
+}
+
+.explicacao p {
+	font-size: 26px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.feito-com p, .feito-com a {
+	margin-left: 60px;
+	display: block;
+}
+
+.box-shadow(@style, @c) when (iscolor(@c)) {
+  box-shadow:         @style @c;
+  -webkit-box-shadow: @style @c;
+  -moz-box-shadow:    @style @c;
+}
+.box-shadow(@style, @alpha: 50%) when (isnumber(@alpha)) {
+  .box-shadow(@style, rgba(0, 0, 0, @alpha));
+}
+.border-bottom-radius(@corner) {
+	border-bottom-left-radius: @corner;
+	border-bottom-right-radius: @corner;
+	-webkit-border-bottom-left-radius: @corner;
+	-webkit-border-bottom-right-radius: @corner;
+	-moz-border-bottom-left-radius: @corner;
+	-moz-border-bottom-right-radius: @corner;
+}
+
+.border-radius(@corner) {
+	border-radius: @corner;
+	-webkit-border-radius: @corner;
+	-moz-border-radius: @corner;
+
+}

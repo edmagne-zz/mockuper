@@ -1,1 +1,319 @@
-My GitHub Page
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="core/css/style.css">
+  <link rel="stylesheet/less" type="text/css" href="assets/style/main.less">
+
+  <script type="text/javascript" src="core/js/plugins.js"></script>
+  <script type="text/javascript" src="core/js/mockuper.js"></script>
+
+  <script type="text/javascript">SyntaxHighlighter.all();</script>
+</head>
+<body>
+  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+  <div class="container_12">
+    <header class="grid_12">
+      <ul class="app-menu">
+        <li><a href="#pessoas">Lista de Pessoas</a></li>
+        <li><a href="#include">Include</a></li>
+        <li><a href="#placeholder">Placeholder</a></li>
+        <li><a href="#lorem">Lorem Ipsum</a></li>
+        <li><a href="#javascript">Javascript</a></li>
+        <li><a href="#gem">Ruby GEM!</a></li>
+      </ul>
+    </header>
+
+    <div class="explicacao grid_12"><p>Crie e compartilhe protótipos para projetos de forma fácil e intuitiva.</p> O Mockuper provê uma interface amigável para geração de estruturas de projeto, além de permitir a escolha de padrões visuais dentre modelos pré-definidos. Seus diferenciais estão na ferramenta para compartilhamento e colaboração - que mantém histórico de revisões e comentários dos clientes - e na possibilidade de definição de uma paleta de cores customizada para criação de temas totalmente adaptados à sua necessidade. </div>
+
+    <div role="main">
+      <div class="grid_12 bloco-principal">
+        <a name="pessoas"></a>
+        <h2 class="grid_11 margin_fix">Lista de Pessoas</h2>
+        <div class="clear clear-custom"></div>
+
+        <h3 class="grid_11 margin_fix">Traga pessoas</h3>
+        <div id="number-of-people-list" class="grid_3 margin_fix"></div>
+        <script type="text/javascript">
+          mockuper.people.getNames(function() {
+            for (i in mockuper.people.names) {
+              $('#number-of-people-list').append($('<div></div>').html(mockuper.people.names[i]));
+            }
+          },{length: 3});
+        </script>
+        <div class="grid_7"><pre class="brush: js">
+            mockuper.people.getNames(function() {
+              for (i in mockuper.people.names) {
+                $('#number-of-people-list').append($('<div></div>').html(mockuper.people.names[i]));
+              }
+            },{length: 3});
+        </pre></div><div class="clear clear-custom"></div>
+
+        <h3 class="grid_11 margin_fix">Pegue pesssoas específicas da lista</h3>
+        <div id="specific-list" class="grid_3 margin_fix"></div>
+        <script type="text/javascript">
+          mockuper.people.getNames(function() {
+            for (i in mockuper.people.names) {
+              $('#specific-list').append($('<div></div>').html(mockuper.people.names[i]));
+            }
+          },{array: [1, 0, 4]});
+        </script>
+        <div class="grid_7"><pre class="brush: js">
+          mockuper.people.getNames(function() {
+            for (i in mockuper.people.names) {
+              $('#specific-list').append($('<div></div>').html(mockuper.people.names[i]));
+            }
+          },{array: [1, 0, 4]});
+        </pre></div><div class="clear clear-custom"></div>
+
+        <h3 class="grid_11 margin_fix">Apenas um número de pessoas aleatórias</h3>
+        <div id="random-number-of-people-list" class="grid_3 margin_fix"></div>
+        <script type="text/javascript">
+          mockuper.people.getNames(function() {
+            for (i in mockuper.people.names) {
+              $('#random-number-of-people-list').append($('<div></div>').html(mockuper.people.names[i]));
+            }
+          },{random: true,length: 3,});
+        </script>
+        <div class="grid_7"><pre class="brush: js">
+          mockuper.people.getNames(function() {
+            for (i in mockuper.people.names) {
+              $('#random-number-of-people-list').append($('<div></div>').html(mockuper.people.names[i]));
+            }
+          },{random: true,length: 3,});
+        </pre></div>
+      </div>
+
+      <div class="grid_12 bloco-principal">
+        <a name="include"></a>
+        <h2 class="grid_11 margin_fix">Incluir templates</h2>
+        <div class="clear clear-custom"></div>
+        <div id="include-template" class="grid_3 margin_fix"></div>
+        <script>
+        (function($){
+          mockuper.includeTemplateInto('menu', '#include-template');
+        })(jQuery);
+        </script>
+        <div class="grid_7"><pre class="brush: js">
+          mockuper.includeTemplateInto('menu', '#include-template');
+        </pre></div>
+      </div>
+
+      <div class="grid_12 bloco-principal">
+        <a name="placeholder"></a>
+        <h2 class="grid_11 margin_fix">Placeholders para imagens</h2>
+        <div class="clear clear-custom"></div>
+        <div class="grid_3 margin_fix"><img data-placeholder="200x200" /></div>
+        <div class="grid_7"><pre class="brush: js">
+          &lt;img data-placeholder="200x200" />
+        </pre></div>
+      </div>
+
+      <div class="grid_12 bloco-principal">
+        <a name="lorem"></a>
+        <h2 class="grid_11 margin_fix">Incluir texto Lorem Ipsum</h2>
+        <div class="clear clear-custom"></div>
+        <div class="grid_10 margin_fix"><pre class="brush: js">
+        mockuper.text.getLorem(function() {
+          $('#lorem-ipsum').append($('<p></p>').html(mockuper.text.lorem[0]));
+        },{paragraphs: 1});
+        </pre></div>
+        <div id="lorem-ipsum" class="grid_10 margin_fix"></div>
+        <script>
+        mockuper.text.getLorem(function() {
+          $('#lorem-ipsum').append($('<p></p>').html(mockuper.text.lorem[0]));
+        },{paragraphs: 1});
+        </script>
+        <div class="clear"></div>
+      </div>
+
+      <div class="grid_12 bloco-principal">
+        <a name="javascript"></a>
+        <h2 class="grid_11 margin_fix">Javascript Caveats</h2>
+        <div class="clear clear-custom"></div>
+        
+        <!-- MODAL -->
+        <div class="grid_3 margin_fix">
+          <a class="btn btn-primary btn-large" href="#myModal" data-toggle="modal">Abrir janela modal!</a>
+        </div>
+        <div class="modal" id="myModal" style="display: none">
+          <div class="modal-header">    
+            <button class="close" data-dismiss="modal">×</button>    
+            <h3>Modal header</h3>
+          </div>
+          <div class="modal-body">Minha modal funciona!</div>
+          <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal">Close</a>
+              <a href="#" class="btn btn-primary" data-dismiss="modal">Save changes</a>
+          </div>
+        </div>
+        <div class="grid_7"><pre class="brush: js">
+        <div class="modal" id="myModal" style="display: none">
+          <div class="modal-header">    
+            <button class="close" data-dismiss="modal">×</button>    
+            <h3>Modal header</h3>
+          </div>
+          <div class="modal-body">Minha modal funciona!</div>
+          <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal">Close</a>
+              <a href="#" class="btn btn-primary" data-dismiss="modal">Save changes</a>
+          </div>
+        </div>
+        </pre></div>
+        <div class="clear clear-custom"></div>
+
+        <div class="grid_3 margin_fix">
+          <a href="#" rel="tooltip" title="Olha, funciona!" id="tooltip1">Passa o mouse para ver uma tooltip</a>
+        </div>
+        <script type="text/javascript"> 
+        $('#tooltip1').tooltip('toggle');
+        $('#tooltip1').tooltip('hide');
+        </script>
+        <div class="grid_7"><pre class="brush: js">
+          $('#tooltip1').tooltip('toggle');
+          $('#tooltip1').tooltip('hide');
+        </pre></div><div class="clear clear-custom"></div>
+
+        <div class="grid_10 margin_fix">
+          <ul class="nav nav-tabs" id="myTab">
+            <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+            <li><a data-toggle="tab" href="#profile">Profile</a></li>
+            <li class="dropdown">
+              <a data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a data-toggle="tab" href="#dropdown1">@fat</a></li>
+                <li><a data-toggle="tab" href="#dropdown2">@mdo</a></li>
+              </ul>
+            </li>
+          </ul>
+  
+          <div class="tab-content" id="myTabContent">
+            <div id="home" class="tab-pane fade in active"></div>
+            <div id="profile" class="tab-pane fade"></div>
+            <div id="dropdown1" class="tab-pane fade"></div>
+            <div id="dropdown2" class="tab-pane fade"></div>
+          </div> 
+        </div>
+        
+        <script type="text/javascript"> 
+        $('#myTab a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');});
+        $('.dropdown-toggle').dropdown();
+        mockuper.text.getLorem(function() {
+                $('#home').append($('<p></p>').html(mockuper.text.lorem[0]));
+            },{paragraphs: 1}
+        );
+        mockuper.text.getLorem(function() {
+                $('#profile').append($('<p></p>').html(mockuper.text.lorem[1]));
+            },{paragraphs: 2}
+        );
+        mockuper.text.getLorem(function() {
+                $('#dropdown1').append($('<p></p>').html(mockuper.text.lorem[2]));
+            },{paragraphs: 3}
+        );
+        mockuper.text.getLorem(function() {
+                $('#dropdown2').append($('<p></p>').html(mockuper.text.lorem[3]));
+            },{paragraphs: 4}
+        );
+        </script>
+        <div class="grid_10 margin_fix"><pre class="brush: js">
+        mockuper.text.getLorem(function() {
+                $('#home').append($('<p></p>').html(mockuper.text.lorem[0]));
+            },{paragraphs: 1}
+        );
+        mockuper.text.getLorem(function() {
+                $('#profile').append($('<p></p>').html(mockuper.text.lorem[1]));
+            },{paragraphs: 2}
+        );
+        mockuper.text.getLorem(function() {
+                $('#dropdown1').append($('<p></p>').html(mockuper.text.lorem[2]));
+            },{paragraphs: 3}
+        );
+        mockuper.text.getLorem(function() {
+                $('#dropdown2').append($('<p></p>').html(mockuper.text.lorem[3]));
+            },{paragraphs: 4}
+        );
+        </pre></div><div class="clear clear-custom"></div>
+
+
+
+
+          <div class="grid_3 margin_fix">
+            Autocomplete fácil!
+            <input type="text" data-items="4" data-provide="typeahead" style="margin: 0pt auto;" class="span3">
+            <script type="text/javascript">
+            mockuper.people.getNames(function(){
+               $('.span3').data('source',mockuper.people.names);
+            });
+            </script>
+          </div>
+          <div class="grid_7 margin_fix"><pre class="brush: js">
+            #HTML
+            <input type="text" data-items="4" data-provide="typeahead" style="margin: 0pt auto;" class="span3">
+
+            #JS
+            mockuper.people.getNames(function(){
+               $('.span3').data('source',mockuper.people.names);
+            });
+          </pre></div>
+       </div>
+
+      <div class="grid_12 bloco-principal">
+        <a name="gem"></a>
+        <h2 class="grid_11 margin_fix">Faça tudo com uma Ruby Gem!</h2>
+        <div class="clear clear-custom"></div>
+        <div class="grid_3 margin_fix">Crie um novo projeto</div>
+        </script>
+        <div class="grid_7"><pre class="brush: ruby">
+          mockuper new nome_do_projeto
+        </pre></div><div class="clear clear-custom"></div>
+
+        <div class="grid_3 margin_fix">Liste todos templates</div>
+        </script>
+        <div class="grid_7"><pre class="brush: ruby">
+          mockuper list_templates
+        </pre></div><div class="clear clear-custom"></div>
+
+        <div class="grid_3 margin_fix">Adicione novos templates</div>
+        </script>
+        <div class="grid_7"><pre class="brush: ruby">
+          mockuper add_template nome_do_template
+        </pre></div><div class="clear clear-custom"></div>
+
+        <div class="grid_8 margin_fix" style="font-size: 18px; font-weight: bold;">Baixe a gem em <a href="#">github.com/gem</a></div>
+        </script>
+      </div>
+    </div> <!-- End Div role Main -->
+
+    <div class="grid_12 bloco-principal feito-com">
+      <h2 class="grid_11 margin_fix">Nós usamos algumas ferramentas para criar isso</h2>
+      <div class="clear clear-custom"></div>
+      
+      <p>Less CSS. </p><a href="http://lesscss.org/">lesscss.org</a><div class="clear clear-custom"></div>
+      <p>Twitter Bootstrap. </p><a href="http://twitter.github.com/bootstrap/index.html">Twitter Bootstrap on Github.</a>
+    </div>
+
+
+
+
+
+
+
+
+
+    <footer>
+      <div class="grid_12">
+        <p>Desenvolvido por Edite Martins, Edmagne Santos, Marcel Falcão, Mateus Pinheiro e Tomás Queiroga. Dex Inn Day 2012.</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
