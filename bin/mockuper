@@ -1,0 +1,43 @@
+#!/usr/bin/env ruby
+
+lib = File.expand_path(File.dirname(__FILE__) + '/../lib')
+defaults = File.expand_path(File.dirname(__FILE__) + '/../defaults')
+templates_path = File.expand_path(File.dirname(__FILE__) + '/../templates')
+$LOAD_PATH.unshift(lib) if File.directory?(lib) && !$LOAD_PATH.include?(lib)
+
+require "#{lib}/mockuper.rb"
+
+valid_templates = ["c-f", "c-rb", "h-c-c-f", "h-c-f", "h-c-rb-f", "h-c", "h-clb-c-f", "h-crb-c-f", "h-lb-c-f", "h-rb-c-f", "lb-c", "lb-h-c-f", "rb-h-c-f"]
+valid_generators = ["new", "add_template", "list_templates"]
+args = ARGV.dup
+generator = args[0]
+
+if generator and valid_generators.include?(generator)
+  if generator == "new"
+    source_name = args[1]
+	if source_name
+	  puts "Creating mockup..."
+	  Mockuper::create_source(source_name, defaults)
+	  puts "Mockup \"#{source_name}\" successfully created"
+	else
+	  print "you must type a valid name"
+	end
+  elsif generator == "add_template"
+    template_name = args[1]
+    source_path = args[2]
+    
+    if source_path.nil?
+      puts "you must type a valid mockup path"
+	elsif not valid_templates.include?(template_name)
+	  puts "you must type a valid template"
+	else
+	  puts "Adding template..."
+	  Mockuper::add_template(source_path, template_name, templates_path)
+	  puts "Template \"#{template_name}\" successfully added"
+	end
+  elsif generator == "list_templates"
+	puts valid_templates.join("\n")
+  end
+else
+  print "you must type a valid generator"
+end

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Testes</title>
+<script src="../jQuery.js"></script>
+<script src="core/js/mockuper.js"></script>
+<style>
+	div.even {
+		background-color: #DDDDDD;
+	}
+	div.menu {
+		background-color: #CCCCCC;
+	}
+	div.img {
+		display: block;
+	}
+</style>
+</head>
+<body>
+<img></img>
+<img id="img1" data-placeholder="200x300"></img>
+<img class="img" data-placeholder="300x900"></img>
+<div id="menu23"></div>
+<div id="list"></div>
+<script>
+(function($) {
+
+	mockuper.includeTemplateInto('menu', '#menu23');
+
+	mockuper.people.getNames(function(){
+		for (i in mockuper.people.names) {
+			$('#list').append($('<div></div>').html(mockuper.people.names[i]).addClass('even'));
+		}
+	});
+
+	mockuper.people.getNames(function() {
+				for (i in mockuper.people.names) {
+					$('#list').append($('<div></div>').html(mockuper.people.names[i]));
+				}
+			},{array: [1, 0, 4]}
+	);
+	
+	mockuper.people.getNames(function() {
+			for (i in mockuper.people.names) {
+				$('#list').append($('<div></div>').html(mockuper.people.names[i]).addClass('even'));
+			}
+		},{length: 3}
+	);
+
+	mockuper.people.getNames(
+		function() {
+			for (i in mockuper.people.names) {
+				$('#list').append($('<div></div>').html(mockuper.people.names[i]));
+			}
+		},{random: true,length: 3,}
+	);
+	
+})(jQuery);
+</script>
+</body>
+</html>
